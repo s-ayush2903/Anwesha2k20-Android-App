@@ -33,16 +33,16 @@ public class OngoingEventsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_event_category, container, false);
 
-        // swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_events);
-        //swipeRefreshLayout.setOnRefreshListener(this::updateData);
+        //     swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_events);
+//        swipeRefreshLayout.setOnRefreshListener(this::updateData);
 
-        //  recyclerView = view.findViewById(R.id.rv_feed_single_type);
+        // recyclerView = view.findViewById(R.id.rv_feed_single_type);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //    adapter = new EventsRecyclerAdapter(requireContext(), (EventsRecyclerAdapter.OnEventSelectedListener) requireContext());
-//        recyclerView.setAdapter(adapter);
+        //adapter = new EventsRecyclerAdapter(requireContext(), (EventsRecyclerAdapter.OnEventSelectedListener) requireContext());
+        //      recyclerView.setAdapter(adapter);
 
-        updateData();
+        //updateData();
 
         return view;
     }
