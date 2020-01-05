@@ -32,10 +32,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-
 public class AccomodationFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private ProgressDialog progressDialog;
     private Button submit_button;
@@ -45,19 +41,14 @@ public class AccomodationFragment extends Fragment implements AdapterView.OnItem
     private SharedPreferences preferences;
 
     public AccomodationFragment() {
-
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_accomodation, container, false);
         submit_button = rootview.findViewById(R.id.submit_button);
         accomodation_options_spinner = rootview.findViewById(R.id.accoomo_spinner);
         return rootview;
-
     }
 
     @Override
@@ -66,14 +57,18 @@ public class AccomodationFragment extends Fragment implements AdapterView.OnItem
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(), R.array.days_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accomodation_options_spinner.setAdapter(adapter);
-        submit_button.setClickable(true);
-        submit_button.setEnabled(true);
-        submit_button.setOnClickListener(v -> {
-            if (!CheckNetwork.isNetworkConnected(requireContext()))
-                Toast.makeText(getContext(), "Check your internet connection!!!", Toast.LENGTH_LONG).show();
-            else submit();
-        });
-
+        if (!user_response.equals("None")) {
+            submit_button.setClickable(true);
+            submit_button.setEnabled(true);
+            submit_button.setOnClickListener(v -> {
+                if (!CheckNetwork.isNetworkConnected(requireContext())) {
+                    Toast.makeText(requireContext(), "You are not connected to the Internet!", Toast.LENGTH_LONG).show();
+                } else submit();
+            });
+        } else {
+            submit_button.setEnabled(false);
+            submit_button.setClickable(false);
+        }
     }
 
     private void submit() {
@@ -84,7 +79,6 @@ public class AccomodationFragment extends Fragment implements AdapterView.OnItem
         String accessToken = preferences.getString("access_token", "");
         info.anwesha.iitp.Auth.AuthApi authApi = RetrofitClientInstance.getRetrofitInstance().create(AuthApi.class);
         RequestBody requestBody = new MultipartBody.Builder()
-
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("anweshaId", celestaIdInput.getText().toString().trim())
                 .addFormDataPart("access_token", accessToken)
@@ -103,6 +97,7 @@ public class AccomodationFragment extends Fragment implements AdapterView.OnItem
                 if (progressDialog != null) progressDialog.dismiss();
                 if (response.isSuccessful() && response.body() != null) {
                     info.anwesha.iitp.accomodation.AccommodationResponse accommodationResponse = response.body();
+
                     if (accommodationResponse.getAccommoResponse() == 202) {
                         Log.e("Success", "access_token: " + accommodationResponse.getAccess_token());
                         storeData(accommodationResponse);
@@ -121,15 +116,20 @@ public class AccomodationFragment extends Fragment implements AdapterView.OnItem
             }
 
             @Override
-            public void onFailure(Call<AccommodationResponse> call, Throwable t) {
-
+            public void onFailure(@NonNull Call<AccommodationResponse> call, @NonNull Throwable t) {
+                if (progressDialog != null) progressDialog.dismiss();
+                Log.e("Error", "onFailure: " + t.getMessage());
+                Toast.makeText(requireContext(), "Something went wrong!!!", Toast.LENGTH_LONG).show();
             }
         });
     }
 
     private void storeData(AccommodationResponse accommodationResponse) {
         PreferenceManager.getDefaultSharedPreferences(requireContext()).edit()
-                .putBoolean("booking_status", true)
+                .putString("anwesha_id", accommodationResponse.getAnweshaId())
+                .putString("day!", accommodationResponse.getDay1())
+                .putString("access_token", accommodationResponse.getAccess_token())
+                .putString("message", String.valueOf(accommodationResponse.getMessage()))
                 .apply();
     }
 
