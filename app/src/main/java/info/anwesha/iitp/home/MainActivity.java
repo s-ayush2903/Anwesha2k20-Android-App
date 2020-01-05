@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements EventsRecyclerAda
         setContentView(R.layout.activity_main);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
