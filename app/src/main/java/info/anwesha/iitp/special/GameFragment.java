@@ -28,7 +28,7 @@ public class GameFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_game, container, false);
-        webView = rootview.findViewById(R.id.game_view);
+        webView = rootview.findViewById(R.id.gameWebView);
         return rootview;
     }
 
