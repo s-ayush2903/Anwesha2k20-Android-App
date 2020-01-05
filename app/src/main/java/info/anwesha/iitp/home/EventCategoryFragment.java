@@ -80,7 +80,7 @@ public class EventCategoryFragment extends Fragment {
         //recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
 
         adapter = new EventsCategoryAdapter(context);
-        recyclerView.setAdapter(adapter);
+        // recyclerView.setAdapter(adapter);
 
         observeAll();
 
