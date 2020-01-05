@@ -67,13 +67,7 @@ public class MainActivity extends AppCompatActivity implements EventsRecyclerAda
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-        Menu menu = navigationView.getMenu();
-        navAccount = menu.findItem(R.id.nav_account);
-
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_events_cat, R.id.nav_pronite, R.id.nav_special_cat,
-                R.id.nav_gallery, R.id.nav_team, R.id.nav_sponsors, R.id.nav_maps, R.id.nav_developers, R.id.nav_account, R.id.nav_accomodation, R.id.nav_game_view)
-                .setDrawerLayout(drawer)
+        Menu menu = navigationView.getMenu()erLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
