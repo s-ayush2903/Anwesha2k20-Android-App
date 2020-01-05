@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--This Relative Layout should exist only until the events are updated
- After this, change it to Swipe Refresh Layout And Uncomment the adapterManagers as well-->
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipe_refresh_events"
     android:layout_width="match_parent"
@@ -12,13 +11,5 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:padding="8dp">
-
     </androidx.recyclerview.widget.RecyclerView>
-
-    <include
-        android:id="@+id/empty_view"
-        layout="@layout/empty_view"
-        android:visibility="visible" />
-
-
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
