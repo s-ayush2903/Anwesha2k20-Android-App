@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements EventsRecyclerAda
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_events_cat, R.id.nav_ongoing, R.id.nav_pronite, R.id.nav_special_cat,
-                R.id.nav_gallery, R.id.nav_team, R.id.nav_sponsors, R.id.nav_maps, R.id.nav_developers, R.id.nav_account, R.id.nav_accomodation)
+                R.id.nav_gallery, R.id.nav_team, R.id.nav_sponsors, R.id.nav_maps, R.id.nav_developers, R.id.nav_account, R.id.nav_accomodation, R.id.nav_game)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements EventsRecyclerAda
             Glide.with(this)
                     .load(prefs.getString("qr_code", ""))
                     .centerCrop()
-                    .placeholder(R.mipmap.celesta_icon_round)
+                    .placeholder(R.mipmap.anwesha_icon_round)
                     .into(profileImage);
             profileImage.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LoginRegisterActivity.class)));
         }

@@ -10,10 +10,10 @@
             android:title="Home" />
         <item
             android:id="@+id/nav_accomodation"
-            android:icon="@drawable/ic_location"
-            android:title="Accomodation"/>
+            android:icon="@drawable/ic_business_black_24dp"
+            android:title="Book Accomodation"/>
 
-        <item
+        <!--<item
             android:id="@+id/nav_theme"
             android:icon="@drawable/ic_theme_black_24dp"
             android:title="Theme" />
@@ -21,7 +21,7 @@
         <item
             android:id="@+id/afterMovie"
             android:icon="@drawable/ic_aftermovie"
-            android:title="After Movie"/>
+            android:title="After Movie"/>-->
 
         <item
             android:id="@+id/nav_events_cat"
@@ -62,6 +62,11 @@
             android:id="@+id/nav_maps"
             android:icon="@drawable/ic_map"
             android:title="Maps" />
+
+        <item
+            android:id="@+id/nav_game"
+            android:icon="@drawable/ic_assistant_black_24dp"
+            android:title="Challenge"/>
 
         <item
             android:id="@+id/nav_developers"

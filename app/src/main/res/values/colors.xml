@@ -11,9 +11,12 @@
 
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name ="green">#a4c639</color>
     <color name="transparent">#00000000</color>
 
     <color name="navigation_background">#aa646B6D</color>
     <color name="event_detail_card_background">#661E263F</color>
+
+    <color name="brown">#3E2723</color>
 
 </resources>
