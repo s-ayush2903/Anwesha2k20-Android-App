@@ -37,7 +37,7 @@ public class OngoingEventsFragment extends Fragment {
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_events);
         swipeRefreshLayout.setOnRefreshListener(this::updateData);
 
-        recyclerView = view.findViewById(R.id.rv_feed_single_type);
+        //  recyclerView = view.findViewById(R.id.rv_feed_single_type);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         adapter = new EventsRecyclerAdapter(requireContext(), (EventsRecyclerAdapter.OnEventSelectedListener) requireContext());
