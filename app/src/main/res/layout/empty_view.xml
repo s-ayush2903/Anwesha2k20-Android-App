@@ -12,10 +12,10 @@
         android:layout_width="200dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
-        android:tint="@color/colorAccent"
-        app:srcCompat="@drawable/logo_alt" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
+        android:fontFamily="sans-serif-white"
         android:id="@+id/tv_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:textSize="18sp"
-        android:text="Nothing Here"
+        android:text="Coming Soon"
         android:textColor="@color/darkGray" />
 
 </LinearLayout>
