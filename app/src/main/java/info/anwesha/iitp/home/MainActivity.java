@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements EventsRecyclerAda
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_events_cat, R.id.nav_ongoing, R.id.nav_pronite, R.id.nav_special_cat,
-                R.id.nav_gallery, R.id.nav_team, R.id.nav_sponsors, R.id.nav_maps, R.id.nav_developers, R.id.nav_account)
+                R.id.nav_gallery, R.id.nav_team, R.id.nav_sponsors, R.id.nav_maps, R.id.nav_developers, R.id.nav_account, R.id.nav_accomodation)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -153,14 +153,14 @@ public class MainActivity extends AppCompatActivity implements EventsRecyclerAda
 
         if (v != null) {
             String name = prefs.getString("first_name", "");
-            ((TextView) v.findViewById(R.id.name)).setText(name.isEmpty() ? "Celesta IITP" : name);
+            ((TextView) v.findViewById(R.id.name)).setText(name.isEmpty() ? "Anwesha IITP" : name);
             String id = prefs.getString("celesta_id", "");
             ((TextView) v.findViewById(R.id.celesta_id)).setText(id.isEmpty() ? "Guest User" : id);
             ImageView profileImage = v.findViewById(R.id.image);
             Glide.with(this)
                     .load(prefs.getString("qr_code", ""))
                     .centerCrop()
-                    .placeholder(R.mipmap.celesta_icon_round)
+                    .placeholder(R.mipmap.anwesha_icon_round)
                     .into(profileImage);
             profileImage.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LoginRegisterActivity.class)));
         }

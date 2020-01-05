@@ -22,10 +22,10 @@ import info.anwesha.iitp.utils.IntentUtils;
 public class AboutFragment extends Fragment implements View.OnClickListener {
 
 
-    private Context context;
-
     public AboutFragment() {
     }
+
+    private Context context;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -110,23 +110,24 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         github9.setOnClickListener(this);
 
         Glide.with(context).load("https://scontent.fdel29-1.fna.fbcdn.net/v/t1.0-9/61836104_1185350021642288_3218647400700706816_n.jpg?_nc_cat=102&_nc_oc=AQks_Avrh-QmlQFcHGi2ug38TMWNY4xy6qpFT8fxfz451NDS3ahAIUOVwKIbn-O6KmE&_nc_ht=scontent.fdel29-1.fna&oh=ba5d514048981767bdc4b4c909b6708a&oe=5E35BDD7")
-                .placeholder(R.mipmap.celesta_icon_round).into(image1);
+                .placeholder(R.mipmap.anwesha_icon_round).into(image1);
 
         Glide.with(context).load("https://scontent.fdel29-1.fna.fbcdn.net/v/t1.0-9/69644261_2115104492128356_6176772960083247104_n.jpg?_nc_cat=107&_nc_oc=AQk4WEUseafFdQvhhWhu0YFH6_9o8nBkkjTU7UJPzeK0NPWeppaKVIVUMtJUAGIZ6Yk&_nc_ht=scontent.fdel29-1.fna&oh=818707c46121857a62041b44ed4bd17c&oe=5DF2FCE3")
-                .placeholder(R.mipmap.celesta_icon_round).into(image2);
+                .placeholder(R.mipmap.anwesha_icon_round).into(image2);
 
         Glide.with(context).load("https://scontent.fdel29-1.fna.fbcdn.net/v/t1.0-9/18813995_1182737558521894_2753272857627730485_n.jpg?_nc_cat=101&_nc_oc=AQlG0F8XVl3PnNTA1LnzMcfZ3p4cElt7WOpCtOADvw6N7eQcw-97L2RhxGWq-T2VDGk&_nc_ht=scontent.fdel29-1.fna&oh=70217968ca8de55d0a842ceac8ab8f41&oe=5E3796AA")
-                .placeholder(R.mipmap.celesta_icon_round).into(image3);
+                .placeholder(R.mipmap.anwesha_icon_round).into(image3);
 
         Glide.with(context).load("https://scontent.fdel29-1.fna.fbcdn.net/v/t1.0-9/33490969_969879943175001_7316512759087104000_n.jpg?_nc_cat=105&_nc_oc=AQn_AxS6IX1lXlZZyVmn8sBqsAwQuU69Qg3VmDV65xgAmC_J9_zHJ5AkbPWEccCVU3A&_nc_ht=scontent.fdel29-1.fna&oh=871245e026dcfd1041ed75995ebe9deb&oe=5DF6A107")
-                .placeholder(R.mipmap.celesta_icon_round).into(image4);
+                .placeholder(R.mipmap.anwesha_icon_round).into(image4);
+
 
         Glide.with(context).load("https://scontent.fdel1-2.fna.fbcdn.net/v/t1.0-0/p480x480/78411567_2411746825744895_7288578639686270976_o.jpg?_nc_cat=104&_nc_ohc=uONelHvmo7kAQkqKqMc4pmOjkmcHJtClYmEMVjkOhzZGlLMPcr43GCORA&_nc_ht=scontent.fdel1-2.fna&oh=a960d468686b630cd3aac20322d979f0&oe=5E8158ED")
-                .placeholder(R.mipmap.celesta_icon_round).into(image5);
-        Glide.with(context).load("https://instagram.fdel27-1.fna.fbcdn.net/vp/7fcc78773c9364271f08bbc9ae7a7a41/5E7C8575/t51.2885-19/s150x150/70891287_314435436086146_8847141092227809280_n.jpg?_nc_ht=instagram.fdel27-1.fna.fbcdn.net").placeholder(R.mipmap.celesta_icon_round).into(image6);
-        Glide.with(context).load("").placeholder(R.mipmap.celesta_icon_round).into(image7);
-        Glide.with(context).load("https://scontent.fdel1-2.fna.fbcdn.net/v/t1.0-9/cp0/e15/q65/p720x720/70253157_121698649207771_2210579453472407552_o.jpg?_nc_cat=101&efg=eyJpIjoidCJ9&_nc_ohc=34H-aQrEeN8AQnnzhF5YyAWV4m03VUw4DgCRoXzKiGZ964onzyDN-sSbQ&_nc_ht=scontent.fdel1-2.fna&oh=361bca9b62a39fe12c3a001792911247&oe=5E6ACA7C").placeholder(R.mipmap.celesta_icon_round).into(image8);
-        Glide.with(context).load("https://scontent.fdel1-3.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/72642224_121631915910324_2013199579935145984_o.jpg?_nc_cat=106&efg=eyJpIjoidCJ9&_nc_ohc=wqKSL8W66Q0AQnvcIC42Z_VOpy7lUxWeRVRwaniRQv_RHB0DqZMstbe0A&_nc_ht=scontent.fdel1-3.fna&oh=05f529eb7bf62d730129d33e870f7512&oe=5E6DC37B").placeholder(R.mipmap.celesta_icon_round).into(image9);
+                .placeholder(R.mipmap.anwesha_icon_round).into(image5);
+        Glide.with(context).load("https://instagram.fdel27-1.fna.fbcdn.net/vp/7fcc78773c9364271f08bbc9ae7a7a41/5E7C8575/t51.2885-19/s150x150/70891287_314435436086146_8847141092227809280_n.jpg?_nc_ht=instagram.fdel27-1.fna.fbcdn.net").placeholder(R.mipmap.anwesha_icon_round).into(image6);
+        Glide.with(context).load("").placeholder(R.mipmap.anwesha_icon_round).into(image7);
+        Glide.with(context).load("https://scontent.fdel1-2.fna.fbcdn.net/v/t1.0-9/cp0/e15/q65/p720x720/70253157_121698649207771_2210579453472407552_o.jpg?_nc_cat=101&efg=eyJpIjoidCJ9&_nc_ohc=34H-aQrEeN8AQnnzhF5YyAWV4m03VUw4DgCRoXzKiGZ964onzyDN-sSbQ&_nc_ht=scontent.fdel1-2.fna&oh=361bca9b62a39fe12c3a001792911247&oe=5E6ACA7C").placeholder(R.mipmap.anwesha_icon_round).into(image8);
+        Glide.with(context).load("https://scontent.fdel1-3.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/72642224_121631915910324_2013199579935145984_o.jpg?_nc_cat=106&efg=eyJpIjoidCJ9&_nc_ohc=wqKSL8W66Q0AQnvcIC42Z_VOpy7lUxWeRVRwaniRQv_RHB0DqZMstbe0A&_nc_ht=scontent.fdel1-3.fna&oh=05f529eb7bf62d730129d33e870f7512&oe=5E6DC37B").placeholder(R.mipmap.anwesha_icon_round).into(image9);
         super.onViewCreated(view, savedInstanceState);
     }
 
