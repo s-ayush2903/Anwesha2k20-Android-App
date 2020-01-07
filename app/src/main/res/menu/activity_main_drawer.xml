@@ -31,7 +31,7 @@
         <item
             android:id="@+id/nav_ongoing"
             android:icon="@drawable/ic_ongoing"
-            android:title="Ongoing Events" />
+            android:title="News Feed" />
 
         <item
             android:id="@+id/nav_pronite"
@@ -72,6 +72,11 @@
             android:id="@+id/nav_developers"
             android:icon="@drawable/developer_android"
             android:title="Developers" />
+
+        <item
+            android:id="@+id/option_contact"
+            android:icon="@drawable/ic_contact_us"
+            android:title="Contact us" />
 
         <item
             android:id="@+id/nav_account"

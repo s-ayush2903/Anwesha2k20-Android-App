@@ -59,7 +59,7 @@
     <fragment
         android:id="@+id/nav_ongoing"
         android:name="info.anwesha.iitp.ongoing.OngoingEventsFragment"
-        android:label="Ongoing Events"
+        android:label="News Feed"
         tools:layout="@layout/fragment_events" />
 
     <fragment
@@ -95,6 +95,7 @@
         android:name="info.anwesha.iitp.contact.ContactFragment"
         android:label="Contact"
         tools:layout="@layout/fragment_contact_us" />
+
 
     <activity
         android:id="@+id/nav_maps"
