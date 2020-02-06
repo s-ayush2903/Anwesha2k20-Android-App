@@ -16,27 +16,27 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import info.anwesha.iitp.R;
 
-//import android.util.Log;
-//import androidx.preference.PreferenceManager;
-//import androidx.recyclerview.widget.LinearLayoutManager;
-//import androidx.recyclerview.widget.RecyclerView;
-//import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-//import java.util.ArrayList;
-//import java.util.List;
-//import info.anwesha.iitp.network.EventsRoutes;
-//import info.anwesha.iitp.network.RetrofitClientInstance;
-//import retrofit2.Call;
-//import retrofit2.Callback;
-//import retrofit2.Response;
+import android.util.Log;
+import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import java.util.ArrayList;
+import java.util.List;
+import info.anwesha.iitp.network.EventsRoutes;
+import info.anwesha.iitp.network.RetrofitClientInstance;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EventsFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "data";
 
-    private String club;
-    //private info.anwesha.iitp.events.EventsRecyclerAdapter adapter;
+    private String category;
+    private info.anwesha.iitp.events.EventsRecyclerAdapter adapter;
     private info.anwesha.iitp.events.EventsViewModel viewModel;
-    //private SwipeRefreshLayout swipeRefreshLayout;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private Context context;
 
     public EventsFragment() {
@@ -46,7 +46,7 @@ public class EventsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            club = getArguments().getString(ARG_PARAM1);
+            category = getArguments().getString(ARG_PARAM1);
         }
         viewModel = ViewModelProviders.of(this).get(EventsViewModel.class);
 
@@ -65,29 +65,50 @@ public class EventsFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
+        String new_show="Test";
         if (getActivity() != null)
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(club + " Events");
+        {
+            if(category.equals("awelfare"))
+                new_show="Arts and Welfare";
+            else
+            if(category.equals("cultural"))
+                new_show="Cultural";
+            else
+            if(category.equals("technical"))
+                new_show="Technical";
+            else
+            if(category.equals("proshow"))
+                new_show="Proshow";
+            else
+            if(category.equals("pronite"))
+                new_show="Pronite";
+            else
+            if(category.equals("pre-anwesha"))
+                new_show="Pre-Anwesha";
+            else
+            if(category.equals("informal"))
+                new_show="Informal";
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(new_show + " Events");}
 
-        //swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_events);
-      /*  swipeRefreshLayout.setOnRefreshListener(this::updateData);
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_events);
+        swipeRefreshLayout.setOnRefreshListener(this::updateData);
 
-        //RecyclerView recyclerView = view.findViewById(R.id.rv_feed_single_type);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        RecyclerView recyclerView = view.findViewById(R.id.rv_feed_single_type);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
         adapter = new info.anwesha.iitp.events.EventsRecyclerAdapter(context, (EventsRecyclerAdapter.OnEventSelectedListener) context);
         recyclerView.setAdapter(adapter);
 
         observeAll();
-*/
+
         super.onViewCreated(view, savedInstanceState);
     }
-/*
+
     private void observeAll() {
         viewModel.loadAllEvents().observe(this, eventItems -> {
             List<info.anwesha.iitp.events.EventItem> newList = new ArrayList<>();
             for (info.anwesha.iitp.events.EventItem n : eventItems) {
-                if (n.getEvClub().equals(club)) newList.add(n);
+                if (n.getEvCategory().equals(category)) newList.add(n);
             }
             adapter.setEventItemList(newList);
         });
@@ -132,5 +153,5 @@ public class EventsFragment extends Fragment {
                     swipeRefreshLayout.setRefreshing(false);
             }
         });
-  */
+    }
 }

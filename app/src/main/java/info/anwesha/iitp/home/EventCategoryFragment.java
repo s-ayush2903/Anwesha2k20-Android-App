@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -43,11 +44,17 @@ public class EventCategoryFragment extends Fragment {
     private View emptyView;
     private SharedPreferences preferences;
 
+    String types;
+
     private Context context;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+            types = String.valueOf(getArguments().getString("type"));
+        }
         setEnterTransition(TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.fade));
         viewModel = ViewModelProviders.of(this).get(EventsViewModel.class);
         if (getContext() != null)
@@ -77,10 +84,10 @@ public class EventCategoryFragment extends Fragment {
         emptyView = view.findViewById(R.id.empty_view);
 
         recyclerView = view.findViewById(R.id.rv_event_category);
-        //recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
 
         adapter = new EventsCategoryAdapter(context);
-        // recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
 
         observeAll();
 
@@ -88,24 +95,47 @@ public class EventCategoryFragment extends Fragment {
     }
 
     private void observeAll() {
-        viewModel.loadAllClubs().observe(this, strings -> {
 
-            List<String> temp = new ArrayList<>();
+        if (types.equals("events")) {
+            viewModel.loadEventsCategory().observe(this, strings -> {
 
-            for (String s : strings)
-                if (!temp.contains(s))
-                    temp.add(s);
+                List<String> temp = new ArrayList<>();
 
-            adapter.setEventCategoryList(temp);
+                for (String s : strings)
+                    if (!temp.contains(s))
+                        temp.add(s);
 
-            if (strings.size() == 0) {
-                recyclerView.setVisibility(View.INVISIBLE);
-                emptyView.setVisibility(View.VISIBLE);
-            } else {
-                recyclerView.setVisibility(View.VISIBLE);
-                emptyView.setVisibility(View.INVISIBLE);
-            }
-        });
+                adapter.setEventCategoryList(temp);
+
+                if (strings.size() == 0) {
+                    recyclerView.setVisibility(View.INVISIBLE);
+                    emptyView.setVisibility(View.VISIBLE);
+                } else {
+                    recyclerView.setVisibility(View.VISIBLE);
+                    emptyView.setVisibility(View.INVISIBLE);
+                }
+            });
+        } else {
+            viewModel.loadCompetetionsCategory().observe(this, strings -> {
+
+                List<String> temp = new ArrayList<>();
+
+                for (String s : strings)
+                    if (!temp.contains(s))
+                        temp.add(s);
+
+                adapter.setEventCategoryList(temp);
+
+                if (strings.size() == 0) {
+                    recyclerView.setVisibility(View.INVISIBLE);
+                    emptyView.setVisibility(View.VISIBLE);
+                } else {
+                    recyclerView.setVisibility(View.VISIBLE);
+                    emptyView.setVisibility(View.INVISIBLE);
+                }
+            });
+        }
+
     }
 
     private void updateData() {
